@@ -66,6 +66,69 @@ result
     "status": 0
 }
 ```
+#### /insertServer
+
+desc: insert wechat customer server 
+
+POST http://127.0.0.1:8080/insertServer
+
+```json
+ // 时间戳毫秒
+{
+  "kfId": "123safasdfasdf",
+  "serverId":[
+    {
+      "startTime": 13,
+      "endTime": 13,
+      "users":["userid1","userId2"]
+    }
+  ]
+}
+```
+
+#### /listServer
+
+desc: list server users
+ 
+Get http://127.0.0.1:8080/listServer
+
+| param    | requeired | default | example |
+|:-------- | --------- | ------- | ----- |
+| kfId      | true     | -    |    wkeUayEAAAwre_WgeNunupNjlnSN8osQ   |
+| limit    | false     | 10      | 10    |
+| offset   | false     | 0       | 0     |
+
+```json
+ // 时间戳毫秒
+{
+  "kfId": "123safasdfasdf",
+  "serverId":[
+    {
+      "id": "uuid",
+      "startTime": 13,
+      "endTime": 13,
+      "users":["userid1","userId2"]
+    }
+  ]
+}
+```
+#### /delServer
+
+desc: del server users
+
+POST http://127.0.0.1:8080/listServer
+
+
+```json
+ // 时间戳毫秒
+{
+  "serverId":[
+    {
+      "id": "uuid"
+    }
+  ]
+}
+```
 
 ## Frontend
 
