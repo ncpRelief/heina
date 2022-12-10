@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heina.customer.dao.UserDao">
+
+
+    <select id="listUser" parameterType="com.heina.customer.pojo.query.UserQuery"
+            resultType="com.heina.customer.pojo.User">
+        select *
+        from heina.user limit #{offset},#{limit}
+    </select>
+
+
+    <select id="listByUserByName" parameterType="com.heina.customer.pojo.query.UserQuery"
+            resultType="com.heina.customer.pojo.User">
+        select * from heina.user
+        <where>
+            <if test="userName != null and userName != ''">
+                and `username` like concat('%',#{userName},'%')
+            </if>
+        </where>
+        limit #{offset},#{limit}
+    </select>
+
+    <select id="countByUserName" parameterType="com.heina.customer.pojo.query.UserQuery"
+            resultType="java.lang.Integer">
+        select count(*) from heina.user
+        <where>
+            <if test="userName != null and userName != ''">
+                and `username` like concat('%',#{userName},'%')
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertUsers">
+        insert into heina.user(`userid`,`username`) VALUES
+        <foreach collection="users" item="user" separator=",">
+            (#{user.userId},#{user.userId})
+        </foreach>
+    </insert>
+
+
+</mapper>

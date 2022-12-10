@@ -1,4 +1,5 @@
 # heina
+
 a springboot web application about HEINA
 
 ## Backend
@@ -34,6 +35,36 @@ public class HelloWorld {
     public String hello(){
         return  "hello world";
     }
+```
+
+#### /listUsers
+
+desc: get users by username
+
+GET http://127.0.0.1:8080/listUsers?userName=value&limit=value&offset=value
+
+| param    | requeired | default | example |
+|:-------- | --------- | ------- | ------- |
+| userName | false     | null    | 张飞      |
+| limit    | false     | 10      | 10      |
+| offset   | false     | 0       | 0       |
+
+result 
+
+```json
+{
+    "users": [
+        {
+            "userId": "Zhangfei",
+            "userName": "张飞"
+        }
+    ],
+    "count": 1,
+    "offset": 0,
+    "limit": 10,
+    "msg": "查询成功",
+    "status": 0
+}
 ```
 
 ## Frontend

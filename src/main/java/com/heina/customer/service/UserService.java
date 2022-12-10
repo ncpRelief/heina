@@ -1,9 +1,19 @@
 package com.heina.customer.service;
 
-import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
+import com.heina.customer.pojo.User;
+import com.heina.customer.pojo.query.UserQuery;
+
+import java.util.List;
 
 public interface UserService {
 
 
-    JSONArray listUser();
+    JSONObject listUserByName(UserQuery userQuery);
+
+
+    JSONObject insertUsers(List<User> users);
+
+    JSONObject synUsers();
+
 }
