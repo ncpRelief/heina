@@ -27,7 +27,8 @@ public class Constants {
     public static String ADD_SERVER = "https://qyapi.weixin.qq.com/cgi-bin/kf/servicer/add";
 
 
-    public static String LIST_USER = "https://qyapi.weixin.qq.com/cgi-bin/user/list_id";
+
+
 
 
 }

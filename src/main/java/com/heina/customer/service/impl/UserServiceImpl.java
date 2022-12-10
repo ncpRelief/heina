@@ -7,9 +7,12 @@ import com.heina.customer.pojo.User;
 import com.heina.customer.pojo.query.UserQuery;
 import com.heina.customer.service.UserService;
 import com.heina.customer.utils.AccessTokenUtils;
+import com.heina.customer.utils.Constants;
+import com.heina.customer.utils.HttpsClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,16 +46,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public JSONObject synUsers() {
-        JSONObject object = new JSONObject();
-        Map<String,String> param = new HashMap<>();
-        param.put("access_token", AccessTokenUtils.getAccessToken("usersSecret"));
-
-        int rows = 0;
-        object.put("status", 0);
-        object.put("size", 0);
-        object.put("msg", "同步成功");
-
-        return object;
+        // holy shit 企业微信不给查询企业微信昵称了
+        return null;
     }
 
 

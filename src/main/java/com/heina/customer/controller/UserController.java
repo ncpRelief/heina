@@ -14,8 +14,6 @@ public class UserController {
 
     private UserService userService;
 
-    @Autowired
-    private SecretDao secretDao;
 
     @GetMapping("/listUsers")
     public JSONObject getUserList(@RequestParam(name = "userName", required = false) String userName,
@@ -26,11 +24,6 @@ public class UserController {
         result.put("msg", "查询成功");
         result.put("status", 0);
         return result;
-    }
-
-    @GetMapping("/synUsers")
-    public JSONObject synUsers() {
-        return userService.synUsers();
     }
 
 
