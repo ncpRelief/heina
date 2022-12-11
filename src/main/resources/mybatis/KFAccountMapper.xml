@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heina.customer.dao.KFAccountDao">
+
+
+    <select id="listKFAccount" resultType="com.heina.customer.pojo.KFAccount">
+        select account_id   as "kfAccount",
+               account_name as "kfName"
+        from heina.kf_account limit 1000
+    </select>
+
+
+    <insert id="insertKFAccount">
+        insert into heina.kf_account(`account_id`,`account_name`) VALUES
+        <foreach collection="kfAccounts" item="kfAccount" separator=",">
+            (#{kfAccount.kfAccount},#{kfAccount.kfName})
+        </foreach>
+    </insert>
+
+
+    <delete id="delAccount">
+        DELETE FROM heina.kf_account WHERE 1=1
+        <if test="kfAccount != null and kfAccount != '' ">
+            and account_id = #{kfAccount}
+        </if>
+    </delete>
+
+
+</mapper>

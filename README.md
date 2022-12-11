@@ -66,6 +66,45 @@ result
     "status": 0
 }
 ```
+#### /kfAccounts
+
+desc: list kfaccount 
+
+GET http://127.0.0.1:8080/kfAccounts
+
+```json
+{
+    "status": 0,
+    "msg": "查询客服账号成功",
+    "kfAccount": [
+        {
+            "kfAccount": "wkeUayEAAAOcj1juBLqGSrgBLufugRhA",
+            "kfName": "分诊测试非请莫入"
+        },
+        {
+            "kfAccount": "wkeUayEAAAYAnbvcRUV_8Bwa713OWEBw",
+            "kfName": "心语树洞"
+        },
+        {
+            "kfAccount": "wkeUayEAAAwre_WgeNunupNjlnSN8osQ",
+            "kfName": "树洞@NRSH"
+        }
+    ]
+}
+```
+
+#### /refreshAccount
+
+desc: refresh database data about kfaccount 
+
+GET http://127.0.0.1:8080/refreshAccount
+
+```json
+{
+    "status": 0,
+    "msg": "刷新成功,目前共有微信客服3条"
+}
+```
 #### /insertServer
 
 desc: insert wechat customer server 
@@ -75,7 +114,7 @@ POST http://127.0.0.1:8080/insertServer
 ```json
  // 时间戳毫秒
 {
-  "kfId": "123safasdfasdf",
+  "kfAccount": "123safasdfasdf",
   "serverId":[
     {
       "startTime": 13,
@@ -101,7 +140,7 @@ Get http://127.0.0.1:8080/listServer
 ```json
  // 时间戳毫秒
 {
-  "kfId": "123safasdfasdf",
+  "kfAccount": "123safasdfasdf",
   "serverId":[
     {
       "id": "uuid",
@@ -122,6 +161,7 @@ POST http://127.0.0.1:8080/listServer
 ```json
  // 时间戳毫秒
 {
+  "kfAccount":"123asdfasfd",
   "serverId":[
     {
       "id": "uuid"
